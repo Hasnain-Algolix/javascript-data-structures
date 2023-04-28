@@ -116,3 +116,20 @@ Steps:
   6. After selecting the first element set it to null
 
 -- Create a variable 'temp' that keeps reference to the first item, then set head.next to the next item
+
+
+
+
+
+
+
+
+
+
+  /////////////////////////////////////
+---------------------     Get()     -------------
+-- Get a Node by index
+
+Steps:
+  1. Make sure the index is not greater or less then the length of the List
+  2. Set a variable pointing to the current Node in the iteration to return it, set temp to head

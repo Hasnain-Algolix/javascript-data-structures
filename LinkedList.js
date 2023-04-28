@@ -95,11 +95,27 @@ class LinkedList {
 
     return temp;
   }
+
+  // Get item by index
+  get(index) {
+    // Verify the index is not greater or less then the length of the list
+    if (index < 0 || index >= this.length) return undefined;
+
+    // Get the item and make a reference to it
+    let temp = this.head;
+    for (let i = 0; i < index; i++) {
+      temp = temp.next;
+    }
+
+    return temp;
+  }
 }
 
 // Testing for Push()
 const linkedListItem = new LinkedList('Apple');
 linkedListItem.push('Mango');
+linkedListItem.push('Orange');
+linkedListItem.push('Banana');
 
 // Testing for Pop()
 // linkedListItem.pop();
@@ -113,6 +129,9 @@ linkedListItem.push('Mango');
 // linkedListItem.shift();
 // console.log(linkedListItem);
 
-console.log(linkedListItem);
+// Testing Get()
+console.log(linkedListItem.get(1));
+
+// console.log(linkedListItem);
 
 module.exports = LinkedList;
