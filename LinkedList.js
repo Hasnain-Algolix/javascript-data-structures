@@ -29,10 +29,46 @@ class LinkedList {
     // Return LinkedList
     return this;
   }
+
+  // Remove last item
+  pop() {
+    // Check if Linked List is empty
+    if (!this.head) return undefined;
+
+    // Linked List have multiple items
+    let pre = this.head;
+    let temp = this.head;
+
+    // Iterate over the items and select and check every single item, if it points to next node or not, until we get the node that is pointing to null
+    while (temp.next) {
+      pre = temp;
+      temp = temp.next;
+    }
+    this.tail = pre;
+    this.tail.next = null;
+    this.length--;
+
+    // If list has only one item
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+
+    // Return deleted item
+    return temp;
+  }
 }
 
+// Testing for Push()
 const linkedListItem = new LinkedList('Apple');
 linkedListItem.push('Mango');
+// linkedListItem.push('Banana');
+// linkedListItem.push('Orange');
+// linkedListItem.push('Melon');
+console.log(linkedListItem);
+
+// Testing for Pop()
+linkedListItem.pop();
 console.log(linkedListItem);
 
 module.exports = LinkedList;
