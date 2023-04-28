@@ -109,6 +109,16 @@ class LinkedList {
 
     return temp;
   }
+
+  // Update value of a Node by given Index
+  set(index, value) {
+    let temp = this.get(index);
+    if (temp) {
+      temp.value = value;
+      return true;
+    }
+    return false;
+  }
 }
 
 // Testing for Push()
@@ -130,8 +140,10 @@ linkedListItem.push('Banana');
 // console.log(linkedListItem);
 
 // Testing Get()
-console.log(linkedListItem.get(1));
+// console.log(linkedListItem.get(1));
 
-// console.log(linkedListItem);
+// Testing Set()
+linkedListItem.set(0, 'Watermelon');
+console.log(linkedListItem);
 
 module.exports = LinkedList;

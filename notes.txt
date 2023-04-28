@@ -133,3 +133,21 @@ Steps:
 Steps:
   1. Make sure the index is not greater or less then the length of the List
   2. Set a variable pointing to the current Node in the iteration to return it, set temp to head
+
+
+
+
+
+
+
+
+
+
+  /////////////////////////////////////
+---------------------     Set()     -------------
+-- Change the value of Node at index
+
+Steps:
+  1. Select the item by given index (use the get() method)
+  2. Change the value of the selected Node if it exists and return true
+  3. If Node not exists then return false
