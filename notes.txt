@@ -71,3 +71,24 @@ Test Cases:
   1. Add some items
   2. Remove item while list contains 2 items
   3. List has only one item use pop() method
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////
+---------------------     Unshift()     -------------
+Steps:
+  1. Create a new Node
+  2. New Node point to first Node in other words points to Head
+  3. Check List is empty or have items in it
+  4. Increase length
+  5. Return entire Linked List

@@ -57,6 +57,23 @@ class LinkedList {
     // Return deleted item
     return temp;
   }
+
+  unshift(value) {
+    // Create new Node
+    const newNode = new Node(value);
+
+    // Check if list is empty
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      // Is list is not empty
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
 }
 
 // Testing for Push()
@@ -65,10 +82,13 @@ linkedListItem.push('Mango');
 // linkedListItem.push('Banana');
 // linkedListItem.push('Orange');
 // linkedListItem.push('Melon');
-console.log(linkedListItem);
+// console.log(linkedListItem);
 
 // Testing for Pop()
-linkedListItem.pop();
+// linkedListItem.pop();
+
+// Testing Unshift()
+linkedListItem.unshift('Banana');
 console.log(linkedListItem);
 
 module.exports = LinkedList;
