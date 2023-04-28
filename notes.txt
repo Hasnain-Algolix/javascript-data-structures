@@ -1,0 +1,10 @@
+Pop (remove last item)                =   O(n)
+Push (add new item at the end)        =   O(1)
+
+Shift (remove first item)             =   O(1)
+Unshift (adds a new item at the end)  =   O(1)
+
+Insert (add item at an index)         =   O(n)
+Delete (at given index)               =   O(n)
+
+Traverse                              =   O(n)
