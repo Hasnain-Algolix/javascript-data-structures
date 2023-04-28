@@ -8,3 +8,20 @@ Insert (add item at an index)         =   O(n)
 Delete (at given index)               =   O(n)
 
 Traverse                              =   O(n)
+
+
+
+
+/////////////////////////////////////
+---------------------     Push()     -------------
+Steps:
+  1. Create a new Node
+  2. Point last Node point to it
+  3. Tail point to this new node
+
+
+Steps to insert a Node into a LinkedList that doesn't have a Node yet
+  1. Point Head and Tail to this new Node
+
+-- Note:
+        When we return 'this' it returns entire LinkedList class, and it's returning a particular instance of the LinkedList
