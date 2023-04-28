@@ -92,3 +92,27 @@ Steps:
   3. Check List is empty or have items in it
   4. Increase length
   5. Return entire Linked List
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /////////////////////////////////////
+---------------------     Shift()     -------------
+Steps:
+  1. Move Head over to the Next item
+  2. Remove the first item
+  3. What if we have one item
+  4. What if we don't have any item in list
+  5. We need to return the deleted item, so need to keep reference of that item
+  6. After selecting the first element set it to null
+
+-- Create a variable 'temp' that keeps reference to the first item, then set head.next to the next item

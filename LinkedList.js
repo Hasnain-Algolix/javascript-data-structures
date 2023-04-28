@@ -74,21 +74,45 @@ class LinkedList {
     this.length++;
     return this;
   }
+
+  // Remove first item
+  shift() {
+    // if list is empty
+    if (!this.head) return undefined;
+
+    // Make reference to first item
+    let temp = this.head;
+    // Set Head equal to next item
+    this.head = this.head.next;
+    // Break the connection of the temp/first item
+    temp.next = null;
+    this.length--;
+
+    // If list has only one item
+    if (this.length === 0) {
+      this.tail = nul;
+    }
+
+    return temp;
+  }
 }
 
 // Testing for Push()
 const linkedListItem = new LinkedList('Apple');
 linkedListItem.push('Mango');
-// linkedListItem.push('Banana');
-// linkedListItem.push('Orange');
-// linkedListItem.push('Melon');
-// console.log(linkedListItem);
 
 // Testing for Pop()
 // linkedListItem.pop();
+// console.log(linkedListItem);
 
 // Testing Unshift()
-linkedListItem.unshift('Banana');
+// linkedListItem.unshift('Banana');
+// console.log(linkedListItem);
+
+// Testing Shift()
+// linkedListItem.shift();
+// console.log(linkedListItem);
+
 console.log(linkedListItem);
 
 module.exports = LinkedList;
