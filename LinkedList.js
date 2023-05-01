@@ -119,13 +119,32 @@ class LinkedList {
     }
     return false;
   }
+
+  insert(index, value) {
+    // Insert item at start
+    if (index === 0) return this.unshift(value);
+
+    // Insert item at the end
+    if (index === this.length) return this.push(value);
+
+    // Check index is not greater or less then the length of the list
+    if (index < 0 || index >= this.length) return false;
+
+    //Insert in the middle of the List
+    const newNode = new Node(value);
+    const temp = this.get(index - 1);
+    newNode.next = temp.next;
+    temp.next = newNode;
+    this.length++;
+    return true;
+  }
 }
 
 // Testing for Push()
 const linkedListItem = new LinkedList('Apple');
 linkedListItem.push('Mango');
-linkedListItem.push('Orange');
-linkedListItem.push('Banana');
+// linkedListItem.push('Orange');
+// linkedListItem.push('Banana');
 
 // Testing for Pop()
 // linkedListItem.pop();
@@ -144,6 +163,11 @@ linkedListItem.push('Banana');
 
 // Testing Set()
 linkedListItem.set(0, 'Watermelon');
+
+// Testing Insert()
+linkedListItem.insert(1, 'No');
+const getItem = linkedListItem.get(1);
+console.log(getItem);
 console.log(linkedListItem);
 
 module.exports = LinkedList;

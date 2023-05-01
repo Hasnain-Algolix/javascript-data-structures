@@ -151,3 +151,25 @@ Steps:
   1. Select the item by given index (use the get() method)
   2. Change the value of the selected Node if it exists and return true
   3. If Node not exists then return false
+
+
+
+
+
+
+
+
+
+  /////////////////////////////////////
+---------------------     Insert()     -------------
+-- Add a new Node at given index
+
+Steps:
+  1. If we are inserting at the start we can call the unshift() method
+  2. If we are inserting an item the end we can call our push() method
+  3. We are trying to insert at index that doesn't exists, greater or less then
+  4. To insert in middle, we will iterate over the list and grab the before item where we want to insert. We can get the Item using our get() method and passing the negative index to grab the one item before (index - 1). Now set the newNode.next to temp.next, it's mean the the item that the temp is pointing, newNode point to that value, now set temp.next equal to newNode.
+  newNode.next = temp.next
+  temp.next = newNode
+  5. Increase the length
+  6. Return true
