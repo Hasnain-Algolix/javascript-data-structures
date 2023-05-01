@@ -138,6 +138,26 @@ class LinkedList {
     this.length++;
     return true;
   }
+
+  // Remove Method
+  remove(index) {
+    // Remove item from start
+    if (index === 0) return this.shift();
+
+    // Remove last item
+    if (index === this.length - 1) return this.pop();
+
+    // Check index is not greater or less then the length of the list
+    if (index < 0 || index >= this.length) return undefined;
+
+    // Remove from the middle
+    const before = this.get(index - 1);
+    const temp = before.next;
+    before.next = temp.next;
+    temp.next = null;
+    this.length--;
+    return temp;
+  }
 }
 
 // Testing for Push()

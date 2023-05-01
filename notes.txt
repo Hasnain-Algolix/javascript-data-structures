@@ -173,3 +173,27 @@ Steps:
   temp.next = newNode
   5. Increase the length
   6. Return true
+
+
+
+
+
+
+
+
+
+
+
+    /////////////////////////////////////
+---------------------     Remove()     -------------
+-- Delete a Node at given index
+
+Steps:
+  1. If we are deleting from the start we can call the shift() method
+  2. If we are deleting an item from the end we can call our pop() method
+  3. We are trying to insert at index that doesn't exists, greater or less then
+  4. To delete from the middle, we will iterate over the list and grab the before item. We can get the actual Item using beforeItem.next. Now set the beforeItem.next to temp.next, it's mean the the item that the temp is pointing, beforeItem point to that value, now set temp to null
+    before.next = temp.next;
+    temp.next = null;
+  5. Decrease the length
+  6. Return undefined
