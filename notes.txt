@@ -197,3 +197,37 @@ Steps:
     temp.next = null;
   5. Decrease the length
   6. Return undefined
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /////////////////////////////////////
+---------------------     Reverse()     -------------
+-- Reverse a Linked List
+-- It's very important topic to learn and it's also an important interview question.
+
+-- We are gonna take Head and Tail and switch it, and then we are gonna take the arrows and point them to other way.
+
+-- While reversing the Linked List there will be a gap, and this is the hardest part of the reversing a linked list is making sure you keep track of where ever thing is while your are intoducing all of these gaps all the way down to linked list, and continueing to reverse the linked list
+
+
+Steps:
+  1. Need a variable that we are gonna equal to Head (temp), then we say Head is equal to Tail.
+  2. Set Tail equal to Temp
+  3. Create a variable Next that grab the next value after head (head.next / temp.next)
+  4. Create a Prev variable and set equal to null
+  5. We will have a loop that move these 3 variables over the linked list to reverse everything
+
+-- The actual idea of reversing a Linked List is to reverse the pointers of the Linked List, and make the Head as Tail and Tail as Head.
