@@ -80,33 +80,26 @@ Steps to insert a Node into a LinkedList that doesn't have a Node yet
 /////////////////////////////////////
 ---------------------     Pop()     -------------
 Approach:
-  We need to traverse the Linked List get the second last item in the linked list, then we are gonna delete the last item and point Tail to this selected (second last) Node.
+  We need to create a reference to Tail using a temp variable, then set tail to tail.prev, to cut of the tail from Node set tail.next to null and set temp.prev to null.
 
-
--- How we are gonna keep track of second last item?
-We have two variables 'temp' and 'pre'. 
-
--- Temp is going to be the variable that once we iterate through the linked list it is going to pointing to that last item we return.
-
--- Pre is item next to last, in simple words it's gonna be second last item
-
-
--- We iterate over the list, if temp.next point to next node, then we are gonna say pre is equal to temp, then we are gonna say temp is equal to temp.next, we are gonna keep iterating over the list like select a item as temp if it points to next then move next and also move pre also next until we get to the last node, we temp points to null then it's gonna stop iteration
 
 Steps:
-  1. Remove last item
-  2. Point Tail to the last item
-  3. This Node point to Null
+  1. Create reference to Tail using Temp
+  2. Set Tail to tail.prev, mean previous Node
+  3. Set Tail.next to null
+  4. Set temp.prev to null, to cut the node from the list
 
 
 Edge Cases:
   1. We might have no item (empty Linked List)
   2. We might only have one item in Linked List
 
+
 Test Cases:
   1. Add some items
-  2. Remove item while list contains 2 items
+  2. Remove item while list contains 2 or more items
   3. List has only one item use pop() method
+  4. Test with 0 items
 
 
 
