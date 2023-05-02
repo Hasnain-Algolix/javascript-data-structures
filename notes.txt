@@ -1,3 +1,21 @@
+-- What is a Doubly Linked List?
+Double Linked List is just like Singly Linked List, but we have another pointer that goes other way
+
+
+-- Strcuture of Node in Doubly Linked List:
+  const Node = {
+    value: 1,
+    next: null,
+    prev: null
+  }
+
+
+-- Here we have a Prev pointer that points the previous Node in the List.
+
+-- There is nothing that changes in Linked List class, it's the same as in the Singly List.
+
+
+
 /////////////////////////////////////
 ---------------------     Big Notations     -------------
 Pop (remove last item)                =   O(n)
