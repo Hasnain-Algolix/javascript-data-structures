@@ -138,14 +138,12 @@ Steps:
   /////////////////////////////////////
 ---------------------     Shift()     -------------
 Steps:
-  1. Move Head over to the Next item
-  2. Remove the first item
-  3. What if we have one item
-  4. What if we don't have any item in list
-  5. We need to return the deleted item, so need to keep reference of that item
-  6. After selecting the first element set it to null
+  1. Set head to head.next 
+  2. Set head.prev to null
+  3. Set temp.next to null
 
 -- Create a variable 'temp' that keeps reference to the first item, then set head.next to the next item
+
 
 
 
