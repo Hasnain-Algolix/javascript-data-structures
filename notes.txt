@@ -16,6 +16,16 @@ Double Linked List is just like Singly Linked List, but we have another pointer 
 
 
 
+
+
+
+
+
+
+
+
+
+
 /////////////////////////////////////
 ---------------------     Big Notations     -------------
 Pop (remove last item)                =   O(n)
@@ -34,12 +44,20 @@ Traverse                              =   O(n)
 
 
 
+
+
+
+
+
+
+
 /////////////////////////////////////
 ---------------------     Push()     -------------
 Steps:
   1. Create a new Node
-  2. Point last Node point to it
-  3. Tail point to this new node
+  2. Point Tail.next to newNode
+  3. Point newNode.prev to Tail
+  4. Set tail to newNode
 
 
 Steps to insert a Node into a LinkedList that doesn't have a Node yet
