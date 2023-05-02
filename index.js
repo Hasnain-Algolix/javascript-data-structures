@@ -1,4 +1,4 @@
 const Node = require('./Node');
-const LinkedDoublyLinkedListList = require('./DoublyLinkedList');
+const Stack = require('./Stack');
 
 console.log('🚀 Learning Data Structures in JavaScript');
