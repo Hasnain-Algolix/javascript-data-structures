@@ -1,60 +1,24 @@
-What is a Stack?
-  A stack is a linear data structure that follows the principle of Last In First Out (LIFO). This means the last element inserted inside the stack is removed first.
+What is a Queue?
+  It is similar to the ticket queue outside a cinema hall, where the first person entering the queue is the first person who gets the ticket.
 
 
-In stack adding an item is pushing and removing an item is poping
+Queue Rule
+  Queue follows the First In First Out (FIFO) rule - the item that goes in first is the item that comes out first.
 
 
-In Stack we can't get the last item, we can only get the last item mean the first item on top of the stack list.
+In Queue and De-Queue
+  When you get in the line this is called In Queue, and when you remove some body in the it's called De-Queue
 
 
-Examples of Stacks
-  1. We are browsing the internet we gone through multiple social platforms, we are making a stack, and when we go back the popping is happen step by step.
-  Like:
-    4. Facebook
-    3. Google
-    2. Amazon
-    1. Microsoft
-  After pressing the back button on FB we can only go back to Google
-
-  2. Used in Call Stack
+Queue with Array
+  In Queue we add from one end and remove from other end, it doesn't matter which end. In array shift() takes O(n) time, and pop() takes O(1).
 
 
-How to implement a Stack?
-  A very common way to implement a stack is using an Array. 
-  
-
-Note:
-  If you are gonna build a stack with Array always use end for popping and pushing items, becuase if you use start for these operations after every step you need to move items and it will cost O(n), but if you implement these operations on the end it will only cost O(1).
+Queue with Linked List
+  In Linked List adding at the end takes O(1), and removing a item from the start takes O(1) also. In Linked List don't De-Queue from the tail end.
 
 
-We are gonna build the Stack using Linked List. While building a Stack with Linked List always use Left side as the top, in other words null terminated side will be on the bottom. If we add an item at the end of linked list it's take O(1), but deleting an item from the end takes O(n) because we need to iterate over the list, on the other side if we add and remove item from the start of the linked list it's only gonna take O(1).
-
-
-We can use Linked List Sift() and Unshift() method to build a stack, and rename head with top and remove tail.
-
-
-
-Strcuture of Node in Stack:
-  const Node = {
-    value: 1,
-    next: null,
-  }
-
-
-Structure of Stack Constructor:
-  class Stack {
-    constructor(value) {
-      const newNode = new Node(value)
-      this.top = newNode
-      this.length = 1
-    }
-  }
-
-
--- Here we have a Prev pointer that points the previous Node in the List.
-
--- There is nothing that changes in Linked List class, it's the same as in the Singly List.
+In Queus we use First and Last instead of Head and Tail.
 
 
 
@@ -63,7 +27,8 @@ Structure of Stack Constructor:
 
 
 
-/////////////////////////////////////
----------------------     Big Notations     -------------
-Pop (remove last item)                =   O(1)
-Push (add new item at the end)        =   O(1)
+
+
+//////////////////////////////////
+------------------------ EnQueue ---------------------
+Enqueue means when we add something new to the line
