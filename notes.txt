@@ -39,3 +39,21 @@ Steps:
   3. Set last to newNode
   4. Increase length
   5. Return this
+
+
+
+
+
+
+
+
+//////////////////////////////////
+------------------------ DeQueue ---------------------
+It's mean remove the first item from the list
+
+Steps: 
+  1. Create a temp variable and point to the first Node
+  2. Set first to first.next
+  3. Set temp.next to null, to cut the first Node from the list
+  4. Decrease the length
+  5. Return temp (deleted node)
