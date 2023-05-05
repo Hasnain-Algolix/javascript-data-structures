@@ -31,4 +31,11 @@ In Queus we use First and Last instead of Head and Tail.
 
 //////////////////////////////////
 ------------------------ EnQueue ---------------------
-Enqueue means when we add something new to the line
+Enqueue means when we add something new at the end of line
+
+Steps:
+  1. Create new node
+  2. Set last.next to newNode
+  3. Set last to newNode
+  4. Increase length
+  5. Return this
