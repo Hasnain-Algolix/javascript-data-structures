@@ -160,3 +160,19 @@ If we have 7 nodes in the tree and wants to get the 3rd node from the tree it's 
 
 -- Worst Case
   Lets say after our root node next node is greater than the root node, and same applies to the next and and it's has the length of the four, so in this we don't have the left part of the tree, so we need to traverse the entire tree, and it's gonna take O(n)
+
+
+
+
+-- Binary Search Tree Node Strcuture:
+  class Node {
+    constructore(value) {
+      this.value = value
+      this.left = null
+      this.right = null
+    }
+  }
+
+
+-- Binary Search Tree Class Structure:
+  We don't want to create node at the time when we create BST, we only want to add items using the insert method, so we are just going to point the root to null.
