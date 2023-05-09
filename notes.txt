@@ -1,59 +1,162 @@
-What is a Queue?
-  It is similar to the ticket queue outside a cinema hall, where the first person entering the queue is the first person who gets the ticket.
+What is a Tree?
+
+  A tree is a nonlinear hierarchical data structure that consists of nodes connected by edges.
+  Like:
+                           ⭕️
+                          /  \
+                         ⭕️   ⭕️
+                        / \
+                       ⭕️  ⭕️
+
+Why Tree Data Structure?
+  Other data structures such as arrays, linked list, stack, and queue are linear data structures that store data sequentially. In order to perform any operation in a linear data structure, the time complexity increases with the increase in the data size. But, it is not acceptable in today's computational world.
+  Different tree data structures allow quicker and easier access to the data as it is a non-linear data structure.
 
 
-Queue Rule
-  Queue follows the First In First Out (FIFO) rule - the item that goes in first is the item that comes out first.
+What is a Node?
+  A node is an entity that contains a key or value and pointers to its child nodes.
+  Like:
+  const Node = {
+    key: '',
+    value: ''
+    pointers: {
+      left: null,
+      right: null
+    }
+  }
 
+  It's just a representation, in the pointers it's not gonna object these will be only left and right that will point to the child Nodes.
+  
 
-In Queue and De-Queue
-  When you get in the line this is called In Queue, and when you remove some body in the it's called De-Queue
-
-
-Queue with Array
-  In Queue we add from one end and remove from other end, it doesn't matter which end. In array shift() takes O(n) time, and pop() takes O(1).
-
-
-Queue with Linked List
-  In Linked List adding at the end takes O(1), and removing a item from the start takes O(1) also. In Linked List don't De-Queue from the tail end.
-
-
-In Queus we use First and Last instead of Head and Tail.
-
-
-
-
-
-
-
-
-
-
-//////////////////////////////////
------------------------- EnQueue ---------------------
-Enqueue means when we add something new at the end of line
-
-Steps:
-  1. Create new node
-  2. Set last.next to newNode
-  3. Set last to newNode
-  4. Increase length
-  5. Return this
+What is a Leaf and External Node?
+  The last nodes of each path are called leaf nodes or external nodes that do not contain a link/pointer to child nodes. In simple words a Node that doesn't have Child Nodes is called Leaf Node.
 
 
 
+What is a Internal Node?
+  The that have at least one child is called Internal Node
+
+
+What is a Edge?
+  An Edge is a pointer that connects a Node with other Node, it's just like a line between two Nodes.
+
+
+Types of Tree
+  1. Binary Tree
+  2. Binary Search Tree
+  3. AVL Tree
+  4. B-Tree
+
+
+Structure of Binary Tree:
+  It's gonna have two arrows to point the child Nodes.
+  Like:
+  const BST = {
+    value: '',
+    left: null,
+    right: null
+  }
+
+
+Tree Representation in Objects:
+  const Tree = {
+    value: "JavaScript",
+    left: {
+      value: "TypeScript",
+      left: null,
+      right: null
+    },
+    right: {
+      value: "NextJS",
+      left: null,
+      right: null
+    }
+  }
+
+
+What is a Full Tree?
+  In full Tree each Node points to either two Nodes, or zero Node
+
+
+What is Perfect Tree?
+  In full Tree each Line has filled up with Nodes, in simple words each Node must have two Nodes
+
+
+What is a Complete Tree?
+  A Tree that is not Full and Perfect, mean a complete tree can have as many nodes as we want
+
+
+What is a Parent?
+  The top Node of is called Parent
+
+What are Child Nodes or Siblings?
+  The Nodes that are under the Parent Node are Child Nodes, we also call them Siblings
+
+
+
+///////////////////////////////////////////
+
+-- What is a Binary Search Tree?
+  Binary search tree is a data structure that quickly allows us to maintain a sorted list of numbers.
+
+  It is called a binary tree because each tree node has a maximum of two 
+  children.
+
+  It is called a search tree because it can be used to search for the presence of a number in O(log(n)) time.
+
+
+The main difference between Binary Search Tree and others:
+  1. All nodes of left subtree are less than the root node
+  2. All nodes of right subtree are more than the root node
+  3. Both subtrees of each node are also BSTs i.e. they have the above two properties
+
+  - In simple words, when we add a new number in the tree we check the root node, if the value is greater than the root node than the new value is going to be in the right side of the tree, if value is less than the root node than it's gonna be on the left side of the root node. We start copmaring from the root node than sub node and so on. Keep in mind that always start comparing from the root node.
 
 
 
 
 
-//////////////////////////////////
------------------------- DeQueue ---------------------
-It's mean remove the first item from the list
+/////////////////////////////////////////
+Binary Search Tree Big O
 
-Steps: 
-  1. Create a temp variable and point to the first Node
-  2. Set first to first.next
-  3. Set temp.next to null, to cut the first Node from the list
-  4. Decrease the length
-  5. Return temp (deleted node)
+We have a Node, and in mathematical term we can say:
+  2^1 - 1 = 1
+  ^
+  __ 2 to the 1
+
+
+When we have 3 nodes, one root node and two sub nodes, than we have 2 to the 2:
+Like:
+  2^2 - 1 = 3
+  
+
+When we have 7 nodes, one orrt and others sub nodes:
+Like:
+    2^3 - 1 = 7
+
+
+As the 1 is irrelavent we can remove it and say 2 to the 4 nodes
+
+
+----- Traversal BST
+We have three nodes in the tree and we want to get the second node from the tree so it's gonna take two step to get that node
+
+If we have 7 nodes in the tree and wants to get the 3rd node from the tree it's gonna takes three steps to get that node.
+
+
+-- If you want to remove an item you have to iterate the tree in the same way as you did in the traversal
+
+
+-- If you add a new item below the node than you have to iterate over to that item and than add new node right next to it.
+
+
+-- No matter if you are finding, removing, searching its gonna takes same amount of steps, and the time complexity is O(log n)
+
+-- Why O(log n) and Divide and Conquer model?
+  Let's we want to find a number that is greater than our root node, in order to find that number we need to iterate the right part of the tree, and as we know the left part is always less than the right part, so we don't need to iterate left part of the tree, now as we keep moving to find the number, we apply the same steps on every node, if the number is greater than the root node, than other part will not be touched. So vast majority of the items in the tree we don't need to look at.
+
+-- This is our best possible scenario which would be Omega, or more likey it would be theta
+
+
+-- Worst Case
+  Lets say after our root node next node is greater than the root node, and same applies to the next and and it's has the length of the four, so in this we don't have the left part of the tree, so we need to traverse the entire tree, and it's gonna take O(n)
