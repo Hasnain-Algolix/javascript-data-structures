@@ -1,3 +1,4 @@
+// Node Class
 class Node {
   constructor(value) {
     this.value = value;
