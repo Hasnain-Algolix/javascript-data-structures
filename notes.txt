@@ -189,3 +189,9 @@ If we have 7 nodes in the tree and wants to get the 3rd node from the tree it's 
 
 ////////////////////// ///////////////
 ----------------- Insert
+
+
+
+
+////////////////////// ///////////////
+----------------- Contains
