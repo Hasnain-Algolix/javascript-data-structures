@@ -195,3 +195,11 @@ If we have 7 nodes in the tree and wants to get the 3rd node from the tree it's 
 
 ////////////////////// ///////////////
 ----------------- Contains
+Steps:
+  1. Start from the root
+  2. If root is equal to null return false
+  3. To compare tree values with target value, set temp equal to root
+  4. If value is greater than root then go right, and the left part will be rejected completely no need to loop that part, we know that our target number is greater than the root and it's gonna probably be in the right part of the tree.
+  5. If value is less than the root value than go left side
+  6. If value is equal to root value than return true in else block
+  7. If value is not found return false.
