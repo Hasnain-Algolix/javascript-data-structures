@@ -69,3 +69,11 @@ Anothe approach is that when we have multiple items in the same memory address t
 
 
 While creating our hash method we are using _ underscore in the start of the method, and tells other developers that this method should only be called by other methods, should not be called directly.
+
+
+
+
+------------- Time Complexity
+  set, insert = O(1)
+  get = O(1)
+    ^__ In some situations it can be O(n), in worst case scenario, it only gonna happen when we have collision, and in built in hash tables like in javascript we have ojects, hash function creates very random memory addresses and if there is a collision in some slots that is only gonna be 2 or 3 level deep.
