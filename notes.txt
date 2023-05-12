@@ -1,205 +1,71 @@
-What is a Tree?
-
-  A tree is a nonlinear hierarchical data structure that consists of nodes connected by edges.
-  Like:
-                           ⭕️
-                          /  \
-                         ⭕️   ⭕️
-                        / \
-                       ⭕️  ⭕️
-
-Why Tree Data Structure?
-  Other data structures such as arrays, linked list, stack, and queue are linear data structures that store data sequentially. In order to perform any operation in a linear data structure, the time complexity increases with the increase in the data size. But, it is not acceptable in today's computational world.
-  Different tree data structures allow quicker and easier access to the data as it is a non-linear data structure.
-
-
-What is a Node?
-  A node is an entity that contains a key or value and pointers to its child nodes.
-  Like:
-  const Node = {
-    key: '',
-    value: ''
-    pointers: {
-      left: null,
-      right: null
-    }
-  }
-
-  It's just a representation, in the pointers it's not gonna object these will be only left and right that will point to the child Nodes.
+What is a Hash Table?
+  The Hash table data structure stores elements in key-value pairs where
+    Key- unique integer that is used for indexing the values
+    Value - data that are associated with keys.
   
 
-What is a Leaf and External Node?
-  The last nodes of each path are called leaf nodes or external nodes that do not contain a link/pointer to child nodes. In simple words a Node that doesn't have Child Nodes is called Leaf Node.
+We have built in Hash Table in JavaScript called Objects.
 
 
-
-What is a Internal Node?
-  The that have at least one child is called Internal Node
-
-
-What is a Edge?
-  An Edge is a pointer that connects a Node with other Node, it's just like a line between two Nodes.
-
-
-Types of Tree
-  1. Binary Tree
-  2. Binary Search Tree
-  3. AVL Tree
-  4. B-Tree
-
-
-Structure of Binary Tree:
-  It's gonna have two arrows to point the child Nodes.
-  Like:
-  const BST = {
-    value: '',
-    left: null,
-    right: null
+Structure of an Object:
+  const Object = {
+    key: key,
+    value: value
   }
 
 
-Tree Representation in Objects:
-  const Tree = {
-    value: "JavaScript",
-    left: {
-      value: "TypeScript",
-      left: null,
-      right: null
-    },
-    right: {
-      value: "NextJS",
-      left: null,
-      right: null
-    }
+How Hash tables get stored in the memory?
+  In order to store a hash table in memory we run through a hash function, and it's the only key that goes through the hash function.
+
+All letters have aasci numericale values, hash function run through these values through a math equation and create a number, and base on that number it give us an address. Hash function determine where should we put the value in memory. Also for lookup we go thourgh the hash function to find a value
+
+
+There are two characteristic that you need to know
+  1. They are one way
+  2. Deterministic
+
+
+What is mean by One-Way?
+  Let's say you stored an object containing key nails, and the hash function gives the number 2 to store that value in the memory, what you can't do is that you give number 2 and get the string nails.
+
+
+What is mean by Deterministic?
+  It means when you run nails through hash function and it gives you number 2, and when you run this string nails again you will get number 2 again. It will always produce the same number.
+
+
+When we are gonna implement our set(key, value) method in hash table, we will pass key and value and this method will return back array containing key and value that we will store in our hash array, but it's gonna also give us memory address base on the key that we passed.
+
+
+When we have values in hash tables, and sometime it might possible that our hash function generate same memory address that we have already used to save another value, in that we don't want to remove other value, instead we want to save both values, and this is what is called collision. There are multiple ways to deal with collision.
+
+
+When we do get method to get a value, our hash function generates memory address from the passed key and then returns back the value of that string. But if we have collision and stored multiple values in the same memory address than we need to go deeper to get that value.
+
+
+
+---------------- Collision
+What is Collision?
+  It means when we have an item that maps to the same spot in the memory that already have item. In case of collision items are stored something like this:
+    const collisionMemory = [
+      ['nails', 1000],
+      ['nuts', 1000]
+    ]
+
+
+This process putting all of the key value pairs that mapped to a particular address in the same address space what's called separate chaining.
+
+
+Another approach is that we check if the spot is empty than add it over there if not than add some where else. Because the items are stored in sequential way we check step by step. This is what called Linear Probing, and it is a type of open addressing, there are multiple ways of doing open addressing.
+
+
+Anothe approach is that when we have multiple items in the same memory address than we can add items like linked list to that spot.
+
+
+-- Creating constructor for Hash Table:
+  While creating the constructor for Hash Table we need to pass the size of the hash table, and our defualt size is gonna be 7.
+  constructor(size = 7) {
+    this.dataMap = new Array(size)
   }
 
 
-What is a Full Tree?
-  In full Tree each Node points to either two Nodes, or zero Node
-
-
-What is Perfect Tree?
-  In full Tree each Line has filled up with Nodes, in simple words each Node must have two Nodes
-
-
-What is a Complete Tree?
-  A Tree that is not Full and Perfect, mean a complete tree can have as many nodes as we want
-
-
-What is a Parent?
-  The top Node of is called Parent
-
-What are Child Nodes or Siblings?
-  The Nodes that are under the Parent Node are Child Nodes, we also call them Siblings
-
-
-
-///////////////////////////////////////////
-
--- What is a Binary Search Tree?
-  Binary search tree is a data structure that quickly allows us to maintain a sorted list of numbers.
-
-  It is called a binary tree because each tree node has a maximum of two 
-  children.
-
-  It is called a search tree because it can be used to search for the presence of a number in O(log(n)) time.
-
-
-The main difference between Binary Search Tree and others:
-  1. All nodes of left subtree are less than the root node
-  2. All nodes of right subtree are more than the root node
-  3. Both subtrees of each node are also BSTs i.e. they have the above two properties
-
-  - In simple words, when we add a new number in the tree we check the root node, if the value is greater than the root node than the new value is going to be in the right side of the tree, if value is less than the root node than it's gonna be on the left side of the root node. We start copmaring from the root node than sub node and so on. Keep in mind that always start comparing from the root node.
-
-
-
-
-
-/////////////////////////////////////////
-Binary Search Tree Big O
-
-We have a Node, and in mathematical term we can say:
-  2^1 - 1 = 1
-  ^
-  __ 2 to the 1
-
-
-When we have 3 nodes, one root node and two sub nodes, than we have 2 to the 2:
-Like:
-  2^2 - 1 = 3
-  
-
-When we have 7 nodes, one orrt and others sub nodes:
-Like:
-    2^3 - 1 = 7
-
-
-As the 1 is irrelavent we can remove it and say 2 to the 4 nodes
-
-
------ Traversal BST
-We have three nodes in the tree and we want to get the second node from the tree so it's gonna take two step to get that node
-
-If we have 7 nodes in the tree and wants to get the 3rd node from the tree it's gonna takes three steps to get that node.
-
-
--- If you want to remove an item you have to iterate the tree in the same way as you did in the traversal
-
-
--- If you add a new item below the node than you have to iterate over to that item and than add new node right next to it.
-
-
--- No matter if you are finding, removing, searching its gonna takes same amount of steps, and the time complexity is O(log n)
-
--- Why O(log n) and Divide and Conquer model?
-  Let's we want to find a number that is greater than our root node, in order to find that number we need to iterate the right part of the tree, and as we know the left part is always less than the right part, so we don't need to iterate left part of the tree, now as we keep moving to find the number, we apply the same steps on every node, if the number is greater than the root node, than other part will not be touched. So vast majority of the items in the tree we don't need to look at.
-
--- This is our best possible scenario which would be Omega, or more likey it would be theta
-
-
--- Worst Case
-  Lets say after our root node next node is greater than the root node, and same applies to the next and and it's has the length of the four, so in this we don't have the left part of the tree, so we need to traverse the entire tree, and it's gonna take O(n)
-
-
-
-
--- Binary Search Tree Node Strcuture:
-  class Node {
-    constructore(value) {
-      this.value = value
-      this.left = null
-      this.right = null
-    }
-  }
-
-
--- Binary Search Tree Class Structure:
-  We don't want to create node at the time when we create BST, we only want to add items using the insert method, so we are just going to point the root to null.
-
-
-
-
-
-
-
-
-
-
-
-////////////////////// ///////////////
------------------ Insert
-
-
-
-
-////////////////////// ///////////////
------------------ Contains
-Steps:
-  1. Start from the root
-  2. If root is equal to null return false
-  3. To compare tree values with target value, set temp equal to root
-  4. If value is greater than root then go right, and the left part will be rejected completely no need to loop that part, we know that our target number is greater than the root and it's gonna probably be in the right part of the tree.
-  5. If value is less than the root value than go left side
-  6. If value is equal to root value than return true in else block
-  7. If value is not found return false.
+While creating our hash method we are using _ underscore in the start of the method, and tells other developers that this method should only be called by other methods, should not be called directly.

@@ -1,4 +1,3 @@
-const Node = require('./Node');
-const BST = require('./BST');
+const BST = require('./HashTable');
 
 console.log('🚀 Learning Data Structures in JavaScript');
