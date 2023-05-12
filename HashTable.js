@@ -10,8 +10,22 @@ class HashTable {
     }
     return hash;
   }
+
+  set(key, value) {
+    let index = this._hash(key);
+    if (!this.dataMap[index]) {
+      this.dataMap[index] = [];
+    }
+    this.dataMap[index].push([key, value]);
+    return this;
+  }
 }
 
 const myHashTable = new HashTable();
+myHashTable.set('washers', 100);
+myHashTable.set('bolts', 100);
+myHashTable.set('lumber', 100);
+
+console.log(myHashTable);
 
 module.exports = HashTable;
