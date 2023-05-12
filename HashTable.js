@@ -38,6 +38,19 @@ class HashTable {
     }
     return undefined;
   }
+
+  keys() {
+    let allKeys = [];
+
+    for (let i = 0; i < this.dataMap.length; i++) {
+      if (this.dataMap[i]) {
+        for (let j = 0; j < this.dataMap[i].length; j++) {
+          allKeys.push(this.dataMap[i][j][0]);
+        }
+      }
+    }
+    return allKeys;
+  }
 }
 
 const myHashTable = new HashTable();
@@ -48,6 +61,9 @@ myHashTable.set('lumber', 20);
 // Use the get() method with all these keys
 console.log(myHashTable.get('bolts'));
 
-console.log(myHashTable);
+// Testing keys() method:
+console.log(myHashTable.keys());
+
+// console.log(myHashTable);
 
 module.exports = HashTable;
