@@ -1,79 +1,368 @@
-What is a Hash Table?
-  The Hash table data structure stores elements in key-value pairs where
-    Key- unique integer that is used for indexing the values
-    Value - data that are associated with keys.
+This is a graph, here it's refers to a Vertex or a Node.
+Like:
+  90
+
+Vertex is the proper terminology
+
+What is an Edge?
+  The line that connects two vertexes is called Edge or a connection.
+  Like:
+    89 ------- 92
+
+
+A new Vertex can connect to 1 or more verteces, here the number 89 can connect with 78, or 12, or either it can connect with both numbers. 
+  Like:
+
+         89
+        /  |  
+       /   |
+      78---12
+
+When we use these graphs for?
+Let's we want to go from number 12 to number 89, this would be like a maps app, like a GPS on your phone, obviously the wrong to go is to from number 12 to number 78 and than 89, but there is a much faster way to just go one half from 12 to 89. One of the thing of graphs we can weight these edges, the lines those connects the vertex to each other.
+Like:
+
+         89
+        /  |  
+  2 -> /   |    <- 15
+      78---12
+         ^
+         |
+         3
+
+Now the most efficient way is to go from 12 to 78 and than 89, becuase you wanna go least cost path, you don't wanna go from 12 go 89 because there would be high trafic on that road.
+
+This what we also use on routing protocols on network, you might have very fast links and one very slow link it would be better to have that extra router half to be able to send your data.
+
+
+Let's say on FB you have you and your friend, the friend with friend with you and you friend with them with normal accounts, you were friends each other, and that is by-directional relationship, and if you have all by-directional edges it is generaly represented as line without arrows, assume if there are not arrows that is by-directional
+
+
+Let's say on twitter you have relationship with celeberity, this is one way relationship, on this platform you can follow someone without following them you back, in this case most likely they are not following you back, and that is one way relationship
+
+
+A Binary Tree is a type of graph, there some limitations that it can only point to two other items and each of the connections are directional
+
+
+Linked Lists are trees and trees are graphs, therefore linked list is also a graph.
+
+
+
+
+------------------ Adjacency Matrix ------------------
+There are couple of ways to store we can store a graph.
+  1. Adjacency Matrix
+  2. Adjacency List
+
+
+Adjacency Matrix:
+Let's say we have a graph this here:
+
+      A
+    /   \
+   E     B
+   \     / 
+    D---C
+
+The adjacency matrix for this will look like this:
+  |   | A | B | C | D | E |
+  | A |   |   |   |   |   |
+  | B |   |   |   |   |   |
+  | C |   |   |   |   |   |
+  | D |   |   |   |   |   |
+  | E |   |   |   |   |   |
+
+
+Here A points to B and E, so in the Adjacency Matrix A points to B and E, we would put ones on those spots. A cant's possibly points to A, so we put 0 their, and also doesn't points to C and D, so we added 0 their.
+Like:
+  |   | A | B | C | D | E |
+  | A | 0 | 1 | 0 | 0 | 1 |
+  | B |   |   |   |   |   |
+  | C |   |   |   |   |   |
+  | D |   |   |   |   |   |
+  | E |   |   |   |   |   |
+
+
+Now we have B that points to A and C, so we added the 1 there, and everything else is 0.
+Like:
+  |   | A | B | C | D | E |
+  | A | 0 | 1 | 0 | 0 | 1 |
+  | B | 1 | 0 | 1 | 0 | 0 |
+  | C | 0 | 1 | 0 | 1 | 0 |
+  | D | 0 | 0 | 1 | 0 | 1 |
+  | E | 1 | 0 | 0 | 1 | 0 |
+
+    ^__ This is Vertex and on the top is that what is points to or not.
+
+Withing this Graph we will have a 45 degree line and all zeros in an Adjacency Matrix.
+
+
+If the graph has all the by-directional connections, the matrix is going to be Symmetrical across that 45 degree line, this is gonna be mirror image.
+
+
+Let's see what happen when we make one of these connections directional.
+
+If we say A just connects to B that we need to change B connects to A from 1 to 0, as soon we have any of these connections that are directional the Matrix is no longer Symmetrical.
+Like:
+  |   | A | B | C | D | E |
+  | A | 0 | 1 | 0 | 0 | 1 |
+  | B | 0 | 0 | 1 | 0 | 0 |  <-- B not connects to A
+  | C | 0 | 1 | 0 | 1 | 0 |
+  | D | 0 | 0 | 1 | 0 | 1 |
+  | E | 1 | 0 | 0 | 1 | 0 |
+
+
+If we wanted to make the graph weighted, instead of adding 1 we can add their weight number.
+Like:
+      A
+10< /   \   <- 2
+   E     B
+8< \     /  <- 4
+    D---C
+      ^
+      6
+
+Like:
+  |   | A  | B | C | D | E  |
+  | A | 0  | 2 | 0 | 0 | 10 |
+  | B | 2  | 0 | 4 | 0 | 0  |
+  | C | 0  | 4 | 0 | 6 | 0  |
+  | D | 0  | 0 | 6 | 0 | 6  |
+  | E | 10 | 0 | 0 | 8 | 0  |
+
+
+
+
+
+
+------------------ Adjacency List ------------------
+We have this graph let's build this as Adjacency List.
+Like:
+      A
+    /   \
+   E     B
+   \     / 
+    D---C
   
-
-We have built in Hash Table in JavaScript called Objects.
-
-
-Structure of an Object:
-  const Object = {
-    key: key,
-    value: value
+We are gonna store this into object, we are gonna start from A, it's connected to B and E, in the object we will represent the Vertex A and it's edges B and E, A will be key and E and B is the values, now let's move arround this graph
+Like:
+  {
+    A: ['B', 'E'],
+    B: ['A', 'C'],
+    C: ['B', 'D'],
+    D: ['C', 'E'],
+    E: ['A', 'D'],
   }
 
 
-How Hash tables get stored in the memory?
-  In order to store a hash table in memory we run through a hash function, and it's the only key that goes through the hash function.
-
-All letters have aasci numericale values, hash function run through these values through a math equation and create a number, and base on that number it give us an address. Hash function determine where should we put the value in memory. Also for lookup we go thourgh the hash function to find a value
-
-
-There are two characteristic that you need to know
-  1. They are one way
-  2. Deterministic
-
-
-What is mean by One-Way?
-  Let's say you stored an object containing key nails, and the hash function gives the number 2 to store that value in the memory, what you can't do is that you give number 2 and get the string nails.
-
-
-What is mean by Deterministic?
-  It means when you run nails through hash function and it gives you number 2, and when you run this string nails again you will get number 2 again. It will always produce the same number.
-
-
-When we are gonna implement our set(key, value) method in hash table, we will pass key and value and this method will return back array containing key and value that we will store in our hash array, but it's gonna also give us memory address base on the key that we passed.
-
-
-When we have values in hash tables, and sometime it might possible that our hash function generate same memory address that we have already used to save another value, in that we don't want to remove other value, instead we want to save both values, and this is what is called collision. There are multiple ways to deal with collision.
-
-
-When we do get method to get a value, our hash function generates memory address from the passed key and then returns back the value of that string. But if we have collision and stored multiple values in the same memory address than we need to go deeper to get that value.
 
 
 
----------------- Collision
-What is Collision?
-  It means when we have an item that maps to the same spot in the memory that already have item. In case of collision items are stored something like this:
-    const collisionMemory = [
-      ['nails', 1000],
-      ['nuts', 1000]
-    ]
+------------------ Graph Big O ------------------
+Let's look at Big O for Adjacency List and Adjacency Matrix
+
+Space Complexity:
+  In the adjacency list we are gonna store the Vertex It's edges, but in the Adjacency Matrix we are storing everything that A is not connected to, you have to store both, that's makes Adjacency matrix very unefficient when it comes to space complexity.
+
+  Matrix      |  List
+  O( |V|^2 )  |  O( |V| + |E| )  
+
+For Matrix its the number of vertices squared, we have 5 vertices we have 25 entries here.
+
+For the List we are just storing the Vertices and all of the edges
 
 
-This process putting all of the key value pairs that mapped to a particular address in the same address space what's called separate chaining.
 
 
-Another approach is that we check if the spot is empty than add it over there if not than add some where else. Because the items are stored in sequential way we check step by step. This is what called Linear Probing, and it is a type of open addressing, there are multiple ways of doing open addressing.
+Adding Vertex:
+  In List we will add a new key F with empty value[], in Matrix we need to change the Matrix to looks like this, need to add extra row and column for F:
+  Like:
+  |   | A | B | C | D | E | F |
+  | A | 0 | 1 | 0 | 0 | 1 | 0 |
+  | B | 1 | 0 | 1 | 0 | 0 | 0 |
+  | C | 0 | 1 | 0 | 1 | 0 | 0 |
+  | D | 0 | 0 | 1 | 0 | 1 | 0 |
+  | E | 1 | 0 | 0 | 1 | 0 | 0 |
+  | F | 0 | 0 | 0 | 0 | 0 | 0 |
+
+Adding new Vertix in Matrix, it would be equal to creating a new Matrix, when we look at Time Complexity it's O(|V|2) O of vertices square, and it's O of 1 for List:
+
+  Matrix      |  List
+  O(|V|^2)  |  O(1) 
 
 
-Anothe approach is that when we have multiple items in the same memory address than we can add items like linked list to that spot.
-
-
--- Creating constructor for Hash Table:
-  While creating the constructor for Hash Table we need to pass the size of the hash table, and our defualt size is gonna be 7.
-  constructor(size = 7) {
-    this.dataMap = new Array(size)
+If we want to create an edge between B and F, we will push F to B Vertex array, and B to F vertex Array:
+Like:
+  {
+    A: ['B', 'E'],
+    B: ['A', 'C', 'F'],
+    C: ['B', 'D'],
+    D: ['C', 'E'],
+    E: ['A', 'D'],
+    F: ['B']
   }
 
 
-While creating our hash method we are using _ underscore in the start of the method, and tells other developers that this method should only be called by other methods, should not be called directly.
+In the Matrix we just need to change the value from 0 to 1 for F and B connections.
+Like:
+  |   | A | B | C | D | E | F |
+  | A | 0 | 1 | 0 | 0 | 1 | 0 |
+  | B | 1 | 0 | 1 | 0 | 0 | 1 |
+  | C | 0 | 1 | 0 | 1 | 0 | 0 |
+  | D | 0 | 0 | 1 | 0 | 1 | 0 |
+  | E | 1 | 0 | 0 | 1 | 0 | 0 |
+  | F | 0 | 1 | 0 | 0 | 0 | 0 |
+
+
+So Big O for both of these is O(1).
 
 
 
 
-------------- Time Complexity
-  set, insert = O(1)
-  get = O(1)
-    ^__ In some situations it can be O(n), in worst case scenario, it only gonna happen when we have collision, and in built in hash tables like in javascript we have ojects, hash function creates very random memory addresses and if there is a collision in some slots that is only gonna be 2 or 3 level deep.
+Removing Edge:
+  The connection is between B and F, and we will first start from the B, and in the values of B there can be a lot of values, and array can of large, we need to iterate over the array, we will find the value that we are looking for and will remove it. Now we need to do same thing with F, we need to find B and remove that. It has Time Complexity of O(|E|)
+
+  In the Adjacency Matrix we will go over the values and will convert the value from 1 to 0, to disconnect the F and B, so it has Time Complexity of O(1)
+
+
+
+
+Removing Vertex.
+  We will remove F vertex easily in list, but the problem is that we need to go over every vertex and find if there is any F and remove that, for this we need to iterate over all the lists of all the vertices, we need to touch every vertex and every edge to remove that edge. 
+
+  If you have by-directional there is a shortcut that you can use to make this little efficient, but still you have to look at lot of vertices and iterate through the list of edges
+
+  In Matrix it's also every un efficient.
+
+  List is better than the Matrix
+  Like:
+  Matrix      |  List
+  O( |V|^2 )  |  O( |V| + |E| )  
+
+
+As we know we are not just storing all of the one's we are also storing all of the zeros, and the larger this gets the bigger the problem becomes having to store all of them, imagine this your facebook and let's say you have billions users just to use a nice round number and you are gonna have a matrix that is billions accors the top and billion down the side, even each person has thousand friends, the number of zeros in this matrix without number the one's are millions to ones, and there is lot of zeros to store, and this is very un-efficient when it becomes very large.
+
+
+
+
+
+
+
+
+
+------------------ Add Vertex ------------------
+Now we are gonna add Vertex to our Graph, we need edges, and that would be a different method for creating edges between the vertices. So we will start from this:
+  Like:
+    {
+      A: []
+    }
+
+
+Create a Graph class, and in the constructor we just need to create an empty object and we are calling it adjacencyList:
+Like:
+  class Graph {
+    constructor () {
+      this.adjacencyList = {}
+    }
+  }
+
+
+Add Vertex method will create an object with empty array value:
+Like:
+  A: []
+
+
+Add Vertex Method:
+  We will get a key in param and base on that we will create a Vertex and an empty value for it, and we don't allow to have duplicate vertices, so we will check that as well, and return true if vertex is created otherwise return false.
+  Like:
+    addVertex(vertex) {
+      if(!this.adjacencyList[vertex]) {
+        this.adjacencyList[vertex] = []
+        return true
+      }
+      return false
+    }
+
+
+
+
+
+
+------------------ Add Edges ------------------
+Now we have a method to create Vertex, now let's add a method to create edges between vertices.
+
+Let's say we have two vertices 1 and 2, we will connect something like this:
+  {
+    1: ['2'],
+    2: ['1']
+  }
+
+As we know for every vertices we have two edges, mean two connections, so we will pass two params in the addEdges method:
+Like:
+  addEdges(vertex1, vertex2) {
+    this.adjacencyList[vertex1].push(vertex2)
+    this.adjacencyList[vertex2].push(vertex1)
+  }
+
+If we try to add edge between a vertices that don't exists that's not going to work. We will check if the vertex1 and vertex2 exists. Also we will return true if the edges are added, otherwise will return false.
+
+
+
+
+----------- Remove Vertex 
+If we have a graph like this, we want to remove vertex D, we just not need to remove the vertex D, but also we need to remove the edges for Vertex D, and it's connected with A, B, and C, so we remove the edges first than we remove the vertex
+Like:
+  A----B
+  | \  |
+  |  \ |
+  |   \| 
+  C----D
+
+{
+  A: ['B', 'C', 'D'],
+  B: ['A', 'D'],
+  C: ['A', 'D'],
+  D: ['A', 'B', 'C'],
+}
+
+We want to remove D vertex, and its connect with A, B, and C, to make removing process more efficient all the information that we need is in the D vertex array. We will pop C from the array and will set equal to a variable, we know this is by-directional and C has and edge with D, we can go into C Vertex and remove the D from the array of C. Now we can do same thing with B in the D array, pop this B and go into the B vertex and remove D from there, and do the same thing with A. With this technique you just need to go only into these vertices, there might of huge vertices, and you need to go over all of them to just find the values.
+
+
+Once the edges are removed and Vertex array is empty now we can remove the vertex.
+
+
+We will add the while loop on the length of the vertex that we want to remove, and will keep looping until the length of that vertex is 0.
+Like:
+  removeVertex(vertex) {
+    while(this.adjacencyList[vertex].length) {
+
+    }
+  }
+
+
+Now create a variable that will hold the popped item from the vertex.
+Like:
+  removeVertex(vertex) {
+    while(this.adjacencyList[vertex].length) {
+      let temp = this.adjacencyList[vertex].pop()
+    }
+  }
+
+Once the vertex is empty it will break the while loop and only thing is left to delete the vertex. After the deletion return the Graph
+Like:
+  delete this.adjacencyList[vertex]
+
+
+We will also check if the vertex doesn't exists return undefined.
+
+
+Exapmle:
+myGraph.addVertex('A');
+myGraph.addVertex('B');
+myGraph.addVertex('C');
+myGraph.addVertex('D');
+
+myGraph.addEdge('A', 'B');
+myGraph.addEdge('A', 'C');
+myGraph.addEdge('A', 'D');
+myGraph.addEdge('C', 'D');
