@@ -1,0 +1,111 @@
+What is Bubble Sort?
+Bubble sort is a sorting algorithm that compares two adjacent elements and swaps them until they are in the intended order.
+
+Just like the movement of air bubbles in the water that rise up to the surface, each element of the array move to the end in each iteration. Therefore, it is called a bubble sort.
+
+
+We have an array of integers,
+Like:
+  [4, 2, 6, 5, 1, 3]
+
+
+          |   
+          |   |
+  |       |   |
+  |       |   |       |
+  |   |   |   |       |
+  |   |   |   |   |   |
+  4   2   6   5   1   3
+
+
+How the Bubble Sort algorithm works?
+It start from the first item and compares it with second item. If the first item is bigger than the second item we gonna switch them.
+Like:
+
+Swapped 2 and 4
+          |   
+          |   |
+      |   |   |
+      |   |   |       |
+  |   |   |   |       |
+  |   |   |   |   |   |
+  2   4   6   5   1   3
+
+Now, we are gonna compare the second item with the third item (4, 6), and we will keep comparing and swapping two adjacent elements until we sort a the array.
+Like:
+Swapped 6 and 5
+              |  
+          |   |
+      |   |   |
+      |   |   |       |
+  |   |   |   |       |
+  |   |   |   |   |   |
+  2   4   5   6   1   3
+
+
+Swapped 6 and 1
+                  |  
+          |       |
+      |   |       |
+      |   |       |   |
+  |   |   |       |   |
+  |   |   |   |   |   |
+  2   4   5   1   6   3
+
+
+Swapped 6 and 3
+                      |  
+          |           |
+      |   |           |
+      |   |       |   |
+  |   |   |       |   |
+  |   |   |   |   |   |
+  2   4   5   1   3   6
+
+
+Now the number six is sorted. It took 5 steps in 6 items array. 
+
+
+We start over and keep sorting the items.
+
+Each time we sort the itmes it takes fewer steps, but its still pretty unefficient.
+
+
+
+
+
+
+------------------- Bubble Sort Code -----------
+We have a function 'bubbleSort' that takes array as argument, that we are gonna sort. There is going to be a for loop inside the foor loop.
+Like:
+  function bubbleSort(array) {
+
+  }
+
+In the first loop we will iterate the array. We know for the 6 items lenght array we have 5 steps, and as we go over the array these steps will be decremented. So we set the counter of the loop to the array's length - 1, mean the minus the one value from the total lenght of the array. We will decrement the counter number each time using the double minus sign.
+Like:
+  for(let i = array.length; i > 0; i--)
+
+In the inner loop we are gonna set j to 0, and for statement we will say while the j is less than the i. Let's say we have 6 items length array and 5 steps needed to sort that array, so while the j is less than the i keep moving.
+
+Inside the loop we will compare the two adjacent elements, we are selecting the first element and second element using the plus operator. Finally we will switch two items base on the check if the first value is greater or not.:
+Like:
+  if(array[j] > array[j + 1]) {
+    let temp = array[j]
+    array[j] = array[j + 1]
+    array[j + 1] = temp
+  }
+
+
+At the end outside the loop return the sorted array.
+
+
+
+
+
+
+
+
+
+
+

@@ -1,3 +1,3 @@
-const Recursion = require('./Recursion');
+const Recursion = require('./bubbleSorting');
 
 console.log('🚀 Learning Data Structures in JavaScript');
