@@ -1,0 +1,151 @@
+What is Insertion Sort?
+  Insertion sort is a sorting algorithm that places an unsorted element at its suitable place in each iteration.
+
+
+How does the Insertion Sort Works?
+  Insertion sort works similarly as we sort cards in our hand in a card game.
+
+  We assume that the first card is already sorted then, we select an unsorted card. If the unsorted card is greater than the card in hand, it is placed on the right otherwise, to the left. In the same way, other unsorted cards are taken and put in their right place.
+
+A similar approach is used by insertion sort.
+
+
+Insertion Sort always starts with the second item, and than we compare it with the item before it, if it less than the item before it we switch them and drop the second item in the place of first item.
+
+When we try to swap an item we also compare that item to the before item, is it less than or not.
+
+Like:
+  [4, 2, 6, 5, 1, 3]
+      ^_ started from here and compared with before item.
+
+  [2, 4, 6, 5, 1, 3]
+
+After the first sort, we move further and select the next item, and compare with with the before item.
+Like:
+  [2, 4, 6, 5, 1, 3]
+         ^_ started, 6 is not less than 4, so moved to next item.
+
+
+  [2, 4, 6, 5, 1, 3]
+            ^_ started, 5 is less than before item, swapped them
+
+  [2, 4, 5, 6, 1, 3]
+
+
+    [2, 4, 5, 6, 1, 3]
+                 ^_ started, 1 is less than before item, swapped with 6, and before swapping checked the checked the before of 1 that is greater we moved 1 to left, again checked before 1 is less than 4 swapped, again checked and 1 is less than 2 and we swapped them.
+    [1 , 2, 4, 5, 6, 3]
+
+The same thing we do with every number, and now we will do this for number 3 and that will be sorted.
+Like:
+  [1 , 2, 3, 4, 5, 6]
+
+
+
+
+
+----- Insertion Sort Code
+Create an insertion sort function.
+  const insertionSort = (array) => {
+
+  }
+
+For loop will start from the second item.
+  const insertionSort = (array) => {
+    for(let i = 1; i < array.length; i++) {
+
+    }
+  }
+
+
+Create a temp variable that will keep track of the current item in the iteration.
+  const insertionSort = (array) => {
+    let temp;
+    for(let i = 1; i < array.length; i++) {
+      temp = array[i]
+    }
+  }
+  
+
+
+Create and inner loop inside the for loop, and the inner loop will start from the before item of the i. Here we are using var to select item oustide the loop.
+Like:
+  const insertionSort = (array) => {
+    let temp;
+    for(let i = 1; i < array.length; i++) {
+      temp = array[i]
+      for(var j = i - 1;)
+    }
+  }
+
+
+Inside the inner loop we check if the array[j] is greater than the temp, and we decrement the j (j--).
+Like:
+  const insertionSort = (array) => {
+    let temp;
+    for(let i = 1; i < array.length; i++) {
+      temp = array[i]
+      for(var j = i - 1; array[j] > temp; j--) {
+        array[j + 1] = temp
+      }
+    }
+  }
+
+We are saying if array[j] greater than temp than the next value to j that is array[j + 1], change this value with array[j].
+Like:
+            |-> temp
+  [1, 2, 4, 3, 5 , 6]
+         ^
+      array[j]
+  
+  Here array[j] is greater than the temp, so we need to select the next item to the array[j] and that is array[j + 1] (3), and switch this value with actual j array[j], we will say array[j + 1] is now array[j].
+  Like:
+        3|-> temp
+  [1, 2, , 4, 5 , 6]
+         ^
+      array[j]
+  
+
+Once the array[j + 1] is swapped, now we decrement the j that will move the j to the previous item.
+Like:
+        3|-> temp
+  [1, 2, , 4, 5 , 6]
+      ^
+    array[j]
+
+
+Now we will run the loop again, and now the item at the index of array[j] is not greater than the temp, that breaks out of the for loop.
+
+Now we will say in the index of array[j + 1], that is open spot add the temp. As the array[j] is number 2 and plus is gonna be 3, so add the temp on this spot.
+Like:
+        3|-> temp
+  [1, 2, ,4, 5 , 6]
+        ^
+       array[j + 1]
+
+Like:
+  const insertionSort = (array) => {
+    let temp;
+    for(let i = 1; i < array.length; i++) {
+      temp = array[i]
+      for(var j = i - 1; array[j] > temp; j--) {
+        array[j + 1] = temp
+      }
+      array[j + 1] = temp
+    }
+  }
+
+
+There is a problem, if we start from the second and item and we only need to sort first two items, after comparing the frist and second item j will be decremented and will go to -1, and this is not that we want, so we will add one more thing into our inner loop to stop going to negative index.
+Like:
+  const insertionSort = (array) => {
+    let temp;
+    for(let i = 1; i < array.length; i++) {
+      temp = array[i]
+      for(var j = i - 1; array[j] > temp && j > -1; j--) {
+        array[j + 1] = temp
+      }
+      array[j + 1] = temp
+    }
+    return array
+  }
