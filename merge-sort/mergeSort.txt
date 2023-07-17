@@ -100,3 +100,32 @@ Like:
 
     return combined
   }
+
+
+
+
+
+
+
+
+------------ Merge Sort 
+The big thing that Merge Sort is going to do is breaks item into half.
+
+It's going to do this recursively:
+  1. Breaks arrays in half
+  2. Base case: when the array.length is 1
+  3. Use merge() function to put arrays together
+
+
+
+
+
+
+------------ Merge Sort Code
+When the array has only when item that is base case, and we will just return the array if it has only length of one.
+
+
+Space = O(n)
+Time = O(n log n)
+
+
