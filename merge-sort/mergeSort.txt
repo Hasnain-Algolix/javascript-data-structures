@@ -1,0 +1,102 @@
+Merge sort is an algorithm that uses Recursion. It leverages the idea if you have two sorted arrays, combining two sorted array is fairly easy.
+
+
+How does the Merge Sort works?
+Let's say we have an array of integers:
+  const arr = [5, 4, 7, 1, 3, 2, 8, 6]
+
+It will take this array and cut it in half:
+  [5, 4, 7, 1] [3, 2, 8, 6]
+
+  It will keep breaking down the array into smaller array until we have single item arrays.
+  [5, 4] [7, 1] [3, 2] [8, 6]
+
+  [5] [4] [7] [1] [3] [2] [8] [6]
+
+The single item array by defition is sorted
+
+Now we can take first two arrays and combine them into one larger sorted array.
+Like:
+  [5] [4]
+
+  [4, 5]
+
+We will keep doing this all the way across.
+Like:
+  [5] [4] [7] [1] [3] [2] [8] [6]
+
+  [4, 5] [1, 7] [2, 3] [6, 8]
+
+  [1, 4, 5, 7] [2, 3, 6, 8]
+
+  [1, 2, 3, 4, 5, 6, 7, 8]
+
+
+It looks very uneffecient, but it's very effiecent algorithm
+
+
+
+
+
+
+------------ Merge Intro
+Merge is gonna be a helper function. Merge is going to take two sorted array and than put them into one big sorted array.
+Like:
+  [1, 4, 5, 7] [2, 3, 6, 8]
+
+  [1, 2, 3, 4, 5, 6, 7, 8]
+
+We are going to use i and j to reference the items:
+  [1, 4, 5, 7] [2, 3, 6, 8]
+   i            j
+
+We are gonna compare i with j, which one is lowest we push that into new array, we are gonna called that array combined array. We will keep comparing the items until the array is sorted.
+
+
+If of the array get's to the zero item it will break out of the loop, and in another array we might have some values. We will have another loop on this array, and we will keep adding the items to the array until that array is empty. We will have another loop for other array that says if that array has items than do the same thing for that array.
+
+
+
+
+
+
+------------ Merge Code
+We are gonna create the merge helper function to merge two sorted arrays. It's a function that takes two arrays as argument.
+Like:
+  function merge(array1, array2) {
+    let combied = []
+    let i = 0
+    let j = 0
+  }
+
+We have created an empty array that is going to be result of the sorted arrays. Than we have two variables i and j, that points to the first items in both the arrays.
+
+We are gonna use the while loop, and in while loop we say either one of these arrays has a length greater than zero run the while loop.
+function that takes two arrays as argument.
+Like:
+  function merge(array1, array2) {
+    let combined = []
+    let i = 0
+    let j = 0
+    while (i < array1.length && j < array2.length){
+      if (array1[i] < array[j]) {
+        combined.push(array1[i])
+        i++
+      } else {
+        combined.push(array2[j])
+        j++
+      }
+    }
+
+    while(i < array1.length) {
+      combined.push(array1[i])
+      i++
+    }
+
+    while(j < array1.length) {
+      combined.push(array2[j])
+      j++
+    }
+
+    return combined
+  }
