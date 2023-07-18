@@ -1,6 +1,7 @@
 {
   "name": "node-4h7qor",
+  "start": "nodemon index",
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "nodemon": "^3.0.1"
   }
 }
