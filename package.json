@@ -1,5 +1,7 @@
 {
   "name": "node-4h7qor",
   "scripts": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }
